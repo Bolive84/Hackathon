@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>TED Talk Video Viral Predictor</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="/static/bootstrap.min.css" /> -->
+    <style>
+      body{
+        background-image: url('{{url_for('static', filename='ted_talk.png')}}');
+        background-size: 100%;
+        background-repeat-x: no-repeat;
+      }
+      .jumbotron{
+        padding-top: 32px;
+        background-image: url('{{url_for('static', filename='ted_talk.png')}}');
+        background-size: 100%;
+        background-repeat-x: no-repeat;
+      }
+
+      label, legend, p{
+        color: white
+      }
+
+      h1{
+        color:red
+      }
+
+      label{
+        font-size: 20px;
+      }
+
+      legend{
+        font-size: 25px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="jumbotron">
+    <h1>Will your <b>TED</b> Talk go viral?</h1>
+
+    <form action="/result" method="POST">
+      <legend>Inputs for predictor</legend>
+
+      <div class="form-group">
+        <label for="description">Description</label>
+        <textarea name="description" class="form-control" cols="30" rows="5" placeholder="Description of the TED talk" required></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="duration">Duration</label>
+        <input type="number" name="duration" class="form-control" placeholder="Duration of the video in minutes" required>
+      </div>
+
+        <div class="form-group">
+          <label for="languages">Languages</label>
+          <input type="number" name="languages" class="form-control" placeholder="Number of languages available for the TED talk" required>
+        </div>
+
+        <div class="form-group">
+          <label for="published_date">Published Date</label>
+          <input type="date" name="published_date" class="form-control" required>
+        </div>
+
+        <div class="form-group">
+          <label for="tags">Tags</label>
+          <textarea name="tags" class="form-control" cols="30" rows="2" placeholder="Tags for TED talk video. Separate each tags with commas" required></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="title">Title</label>
+          <textarea name="title" class="form-control" cols="30" rows="2" placeholder="Title of the TED talk"></textarea>
+        </div>
+
+        <div class="form-group">
+          <button type="reset" class="btn btn-info">Reset inputs</button>
+
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+      </div>
+  </body>
+</html>
