@@ -5,28 +5,45 @@
     <title>World Happiness Ranking Predictor</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <!-- <link rel="stylesheet" href="/static/bootstrap.min.css" /> -->
+    <link rel="icon" href="{{url_for('static', filename='images/ted-talk-logo.jpg')}}">
     <style>
-        body{
-          background-image: url('{{url_for('static', filename='ted_talk.png')}}');
-          background-size: 100%;
-          background-repeat-x: no-repeat;
-        }
-        .jumbotron{
-          background-image: url('{{url_for('static', filename='ted_talk.png')}}');
-          background-size: 100%;
-          background-repeat-x: no-repeat;
-        }
 
         h3{
-          color: white;
+          color: red;
+        }
+
+        /* ---- particles.js container ---- */
+
+        #particles-js{
+          width: 100%;
+          height: 100%;
+          background-color: black;
+          background-size: cover;
+          background-repeat: no-repeat;
+          position: fixed;
+        }
+
+        canvas {
+          position: fixed;
+          top: 0;
+          left: 0;
+          z-index: 0;
+        }
+
+        button{
+          position: fixed;
+          z-index: 1;
         }
     </style>
   </head>
   <body>
-    <div class="jumbotron">
+    <div class="jumbotron" id="particles-js">
       <h3>The <b>TED</b> talk video {{ prediction }} viral.</h3>
+      <h3>The video will have a {{prob}}% chance of getting viral.</h3>
       <br>
       <button onclick="location.href='/'" class="btn btn-primary">Return to home page</button>
     </div>
+    <script type="text/javascript" src="{{url_for('static', filename='js/particles.js')}}"></script>
+    <script type="text/javascript" src="{{url_for('static', filename='js/app.js')}}"></script>
   </body>
 </html>
